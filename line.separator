@@ -1,0 +1,17 @@
+package practice;
+
+public class Main {
+
+    public static void main(String[] args) {
+    	System.setProperty("line.separaor","\n");
+    	final String BR = System.getProperty("line.separaor");
+    	System.out.println("本日は"+BR+"晴天なり");
+//    	これならできた
+    }
+}
+
+
+
+
+
+
