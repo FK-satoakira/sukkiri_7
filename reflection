@@ -1,0 +1,21 @@
+package practice;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+
+public class Main {
+	public static void main(String[] args) throws Exception {
+		Class<?> cla = Hero.class;
+		Constructor comst = cla.getConstructor();
+		System.out.println(comst);
+		Hero h = (Hero) comst.newInstance();	//クラスのコンストラクタと引数を揃える
+		System.out.println(h); /*taro 10 0 の最後のゼロは何？→A.money*/
+		Field fi = cla.getDeclaredField("hp");	//このコードが正しくない→getField()からgetDeclaredField()にすれば治った
+		System.out.println(fi.getName());
+		fi.set(h.getHp(),400);  //ここはフィールドがpublicでないと無理
+		System.out.println(fi.getName());
+//		java.lang.NoSuchFieldException:指定された名前のフィールドがクラスにはないことを通知します。
+
+	}
+}
+
