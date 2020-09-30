@@ -1,0 +1,59 @@
+package practice;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+
+		long f = Runtime.getRuntime().freeMemory() /*/ 1024 / 1024*/;
+    	long t = Runtime.getRuntime().totalMemory();
+    	long m = Runtime.getRuntime().maxMemory();
+    	System.out.println(f);
+    	System.out.println(t);
+    	System.out.println(m);
+    	System.out.println("-----");
+
+// Stringに関する情報を取得して表示する
+		Class<?> info1 = practice.Hero.class;
+		System.out.println(info1.getSimpleName()); // ⇒ String
+		System.out.println(info1.getName()); // ⇒ java.lang.String
+		System.out.println(info1.getPackage().getName()); // ⇒ java.lang
+		System.out.println(info1.isArray()); // ⇒ false
+		// Stringの親クラスの情報を取得する
+		Class<?> info2 = info1.getSuperclass();
+		System.out.println(info2.getName()); // ⇒ java.lang.Object
+		// なおargsは、きちんと文字列配列として判定される
+		Class<?> info3 = args.getClass();
+		System.out.println(info3.isArray()); // ⇒ true
+    	System.out.println("-----");
+
+// Stringに関する情報を取得して表示する
+    	Heros heros = new Heros();
+    	for (int i = 0; i < 10; i++) {
+			heros.pushHeros(new Hero());
+		}
+		Class<?> inf = practice.Heros.class;
+
+		System.out.println("inf.getSimpleName()="+inf.getSimpleName()); // ⇒ String
+		System.out.println("inf.getName()="+inf.getName()); // ⇒ java.lang.String
+		System.out.println("inf.getPackage().getName()="+inf.getPackage().getName()); // ⇒ java.lang
+		System.out.println("inf.isArray()="+inf.isArray()); // ⇒ false
+		// Stringの親クラスの情報を取得する
+		Class<?> inf2 = inf.getSuperclass();
+		System.out.println("inf2.getName()="+inf2.getName()); // ⇒ java.lang.Object
+		// なおargsは、きちんと文字列配列として判定される
+		Class<?> inf3 = args.getClass();
+		System.out.println("inf3.isArray()="+inf3.isArray()); // ⇒ true
+
+//		int[] num = {1,2,3,4};
+		int num = 9;
+//		System.out.println(num.isArray());
+//		isArray()が謎？
+    }
+}
+
+
+
+
+
+
